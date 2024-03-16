@@ -1617,7 +1617,14 @@ AnimationClip:
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 1.8333334
+  - time: 0
+    functionName: Initialise
+    data: 
+    objectReferenceParameter: {fileID: 11500000, guid: 41ea93134be5a2f46a4864bcf1b28fb2, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.75
     functionName: ReleaseAndShootBall
     data: 
     objectReferenceParameter: {fileID: 0}
