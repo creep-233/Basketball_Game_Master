@@ -2533,6 +2533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1186063b2d172c04ab2094cea92001cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 5800004949886045061}
   moveSpeed: 3
   jumpSpeed: 4
   gravity: 9.8
@@ -2543,6 +2544,12 @@ MonoBehaviour:
     m_Bits: 8
   isGround: 1
   maxJumpCount: 2
+  crouchHeight: 0.5
+  isCrouching: 0
+  playerCamera: {fileID: 963194227}
+  normalFOV: 85
+  zoomFOV: 30
+  zoomSpeed: 10
 --- !u!4 &1164564126 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1114260476483171701, guid: 7ae956b4f54394e80818898d8f4d30c6, type: 3}
@@ -9566,6 +9573,8 @@ GameObject:
   - component: {fileID: 5800004949886045061}
   - component: {fileID: 5800004949886045062}
   - component: {fileID: 5800004949886045063}
+  - component: {fileID: 5800004949886045064}
+  - component: {fileID: 5800004949886045065}
   m_Layer: 0
   m_Name: clavicle_r
   m_TagString: Untagged
@@ -9580,13 +9589,13 @@ Animation:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5800004949886045059}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: 5247738e2a2f3d34c89316e144f100ff, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 5247738e2a2f3d34c89316e144f100ff, type: 2}
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!95 &5800004949886045061
@@ -9601,7 +9610,7 @@ Animator:
   m_Avatar: {fileID: 9000000, guid: b8a7488d12adc39498433d60811eab1a, type: 3}
   m_Controller: {fileID: 9100000, guid: 323899e016b056144a4e8115c5adfb7d, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 2
+  m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -9645,6 +9654,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handTransform: {fileID: 783907945445976187}
   basketballPrefab: {fileID: 6368419964489322148, guid: e42acd6d0ddefac49b43bfd93ba18702, type: 3}
+--- !u!114 &5800004949886045064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5800004949886045059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a37f21d25d709c249ae25cf41b6591b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 5800004949886045061}
+--- !u!114 &5800004949886045065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5800004949886045059}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc67cf2cc7030ff4bb38f5c4f3064d4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animClip: {fileID: 7400000, guid: 5247738e2a2f3d34c89316e144f100ff, type: 2}
+  anim: {fileID: 5800004949886045060}
 --- !u!1 &5822198749475882869
 GameObject:
   m_ObjectHideFlags: 0
