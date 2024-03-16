@@ -17,7 +17,7 @@ public class SimpleAnimationControl : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             // 播放名为"1r"的动画
-            anim.Play(animClip.name);
+           anim.Play(animClip.name);
         }
     }
 }
