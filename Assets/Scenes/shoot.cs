@@ -15,8 +15,14 @@ public class BasketballShot : MonoBehaviour
     public GameObject basketballPrefab; // 篮球的Prefab
     private GameObject basketballInstance; // 场景中的篮球实例
     public LineRenderer lineRenderer;
+<<<<<<< Updated upstream
     private bool isHoldingBall = true;
     private bool isAiming = false; // 新增：跟踪是否正在瞄准
+=======
+    private bool isHoldingBall = false;
+    private bool isAiming = false; // 新增：跟踪是否正在瞄准
+   
+>>>>>>> Stashed changes
 
     void Start()
     {
@@ -36,7 +42,11 @@ public class BasketballShot : MonoBehaviour
         Vector3 spawnPosition = handTransform.position + new Vector3(0, additionalHeight, 0);
         basketballInstance = Instantiate(basketballPrefab, spawnPosition, Quaternion.identity);
         basketballInstance.transform.SetParent(handTransform);
+<<<<<<< Updated upstream
 
+=======
+        isHoldingBall = true;
+>>>>>>> Stashed changes
 
         // 禁用篮球的重力
         Rigidbody rb = basketballInstance.GetComponent<Rigidbody>();
@@ -45,11 +55,19 @@ public class BasketballShot : MonoBehaviour
             rb.useGravity = false; // 禁用重力
             rb.isKinematic = true; // 将篮球设置为Kinematic以避免物理影响
         }
+<<<<<<< Updated upstream
         ShowTrajectory();
     }
     void Update()
     {
         
+=======
+        //ShowTrajectory();
+    }
+    void Update()
+    {
+        if(isHoldingBall == true) { ShowTrajectory(); }
+>>>>>>> Stashed changes
         
         if (Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
@@ -130,5 +148,9 @@ public class BasketballShot : MonoBehaviour
             
             rb.velocity = initialVelocity;
         }
+<<<<<<< Updated upstream
+=======
+        isHoldingBall = false;
+>>>>>>> Stashed changes
     }
 }
