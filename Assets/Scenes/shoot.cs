@@ -16,8 +16,14 @@ public class BasketballShot : MonoBehaviour
     private GameObject basketballInstance; // 场景中的篮球实例
     public LineRenderer lineRenderer;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     private bool isHoldingBall = true;
     private bool isAiming = false; // 新增：跟踪是否正在瞄准
+=======
+    private bool isHoldingBall = false;
+    private bool isAiming = false; // 新增：跟踪是否正在瞄准
+   
+>>>>>>> Stashed changes
 =======
     private bool isHoldingBall = false;
     private bool isAiming = false; // 新增：跟踪是否正在瞄准
@@ -43,7 +49,11 @@ public class BasketballShot : MonoBehaviour
         basketballInstance = Instantiate(basketballPrefab, spawnPosition, Quaternion.identity);
         basketballInstance.transform.SetParent(handTransform);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
+=======
+        isHoldingBall = true;
+>>>>>>> Stashed changes
 =======
         isHoldingBall = true;
 >>>>>>> Stashed changes
@@ -56,17 +66,23 @@ public class BasketballShot : MonoBehaviour
             rb.isKinematic = true; // 将篮球设置为Kinematic以避免物理影响
         }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         ShowTrajectory();
     }
     void Update()
     {
         
 =======
+=======
+>>>>>>> Stashed changes
         //ShowTrajectory();
     }
     void Update()
     {
         if(isHoldingBall == true) { ShowTrajectory(); }
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         
         if (Input.GetAxis("Mouse ScrollWheel") < 0f)
@@ -149,6 +165,10 @@ public class BasketballShot : MonoBehaviour
             rb.velocity = initialVelocity;
         }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+        isHoldingBall = false;
+>>>>>>> Stashed changes
 =======
         isHoldingBall = false;
 >>>>>>> Stashed changes
