@@ -2701,7 +2701,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 31774cc0036156442b265f226cd56a58, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9730,6 +9730,8 @@ Animation:
   m_Animation: {fileID: 7400000, guid: 5247738e2a2f3d34c89316e144f100ff, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: 5247738e2a2f3d34c89316e144f100ff, type: 2}
+  - {fileID: 7400000, guid: b5bcdb20ea99793449698dd9c4a1ba2a, type: 2}
+  - {fileID: 7400000, guid: bdb42943d682f264ea2c1b555c4fb28d, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -9788,6 +9790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41ea93134be5a2f46a4864bcf1b28fb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 5800004949886045061}
   playerCamera: {fileID: 963194227}
   handTransform: {fileID: 783907945445976187}
   basketballPrefab: {fileID: 6368419964489322148, guid: e42acd6d0ddefac49b43bfd93ba18702, type: 3}

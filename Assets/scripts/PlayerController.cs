@@ -75,10 +75,10 @@ public class PlayerController : MonoBehaviour
             isCrouching = !isCrouching; // 切换下蹲状态
             cc.height = isCrouching ? crouchHeight : originalHeight; // 根据是否下蹲设置高度
         }
-        if (Input.GetKeyDown(KeyCode.F)) // 假设空格键用于跳跃
-        {
-            animator.SetTrigger("ShootTrigger");
-        }
+        //if (Input.GetKeyDown(KeyCode.F)) // 假设空格键用于跳跃
+        //{
+        //    animator.SetTrigger("ShootTrigger");
+        //}
 
         // 视野放大处理
         if (Input.GetKey(KeyCode.Z)) // 按下Z键触发视野放大

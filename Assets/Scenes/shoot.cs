@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class BasketballShot : MonoBehaviour
 {
+    public Animator animator;
     public Camera playerCamera; // 添加一个对玩家摄像机的引用
     private Vector3 initialVelocity; // 初始化时不赋值
     private float initialSpeed = 10f; // 初始速度的大小
@@ -15,15 +16,18 @@ public class BasketballShot : MonoBehaviour
     private GameObject basketballInstance; // 场景中的篮球实例
     public LineRenderer lineRenderer;
     private bool isHoldingBall = true;
-    
+    private bool isAiming = false; // 新增：跟踪是否正在瞄准
+
     void Start()
     {
         lineRenderer.positionCount = 0;
         // 初始化时，不显示任何线段 }
         initialVelocity = playerCamera.transform.forward * initialSpeed;
+        
     }
         void Initialise()
     {
+        isHoldingBall = true;
         // 实例化篮球并将其作为手臂的子对象
         // 增加的高度值
         float additionalHeight = 0.213f; // 这里设置你想要增加的高度值
@@ -45,6 +49,8 @@ public class BasketballShot : MonoBehaviour
     }
     void Update()
     {
+        
+        
         if (Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
             initialVelocity -= new Vector3(0, 1f, 0);
@@ -53,18 +59,39 @@ public class BasketballShot : MonoBehaviour
 
         // 更新速度方向
         initialVelocity = playerCamera.transform.forward * initialSpeed + playerCamera.transform.up * 5;
-        if (isHoldingBall)
+        if (Input.GetMouseButtonDown(1)) // 鼠标右键按下
         {
-            // 检查是否按下了投掷按键
-            if (Input.GetKeyDown(KeyCode.Space))
+            isAiming = true; // 进入瞄准状态
+            if (isHoldingBall)
+            {
+                ShowTrajectory(); // 在瞄准时显示轨迹
+            }
+        }
+        if (Input.GetMouseButtonUp(1)) // 鼠标右键松开
+        {
+            isAiming = false; // 退出瞄准状态
+            lineRenderer.positionCount = 0; // 停止显示轨迹
+        }
+
+        // 处理投掷逻辑
+        if (isAiming && Input.GetMouseButtonDown(0)) // 处于瞄准状态且按下鼠标左键
+        {
+            if (isHoldingBall)
             {
                 ReleaseAndShootBall();
                 isHoldingBall = false;
+                isAiming = false; // 投掷后退出瞄准状态
                 lineRenderer.positionCount = 0; // 投掷后不显示抛物线
             }
-           
         }
+        if (Input.GetKeyDown(KeyCode.F)) // 假设空格键用于跳跃
+        {
+            animator.SetTrigger("ShootTrigger");
+        }
+
+
     }
+    
 
     void ShowTrajectory()
     {
